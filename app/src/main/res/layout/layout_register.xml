@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolBarR"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:navigationIcon="@drawable/back">
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp">
+        <TextView
+            android:id="@+id/txtHello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:textColor="#000"/>
+
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_below="@id/txtHello"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:layout_margin="10dp"
+            android:layout_marginTop="10dp"
+            android:paddingTop="20dp"/>
+        <EditText
+            android:id="@+id/edtPasswordR"
+            android:layout_below="@id/edtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:layout_margin="10dp"
+            android:paddingTop="20dp"
+            android:inputType="textPassword"/>
+        <TextView
+            android:id="@+id/txtForgot"
+            android:layout_below="@id/edtPasswordR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Forgot password"
+            android:textColor="#000"
+            android:padding="10dp"
+            />
+        <Button
+            android:id="@+id/btnSignup"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign up"
+            android:textColor="#fff"
+            android:layout_margin="10dp"
+            android:background="@color/colorAccent"/>
+    </RelativeLayout>
+
+
+
+</LinearLayout>
