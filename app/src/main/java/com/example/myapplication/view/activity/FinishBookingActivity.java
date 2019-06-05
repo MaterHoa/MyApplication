@@ -1,6 +1,7 @@
 package com.example.myapplication.view.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,9 @@ public class FinishBookingActivity extends AppCompatActivity {
 
     TextView txtFinish;
     Button btnBackHome;
+    SharedPreferences mPreferences;
+    String sharePrefFile = "com.example.myapplication";
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,11 +27,13 @@ public class FinishBookingActivity extends AppCompatActivity {
         txtFinish = findViewById(R.id.txtBooking);
         btnBackHome = findViewById(R.id.btnBackHome);
 
+        mPreferences = getSharedPreferences(sharePrefFile, MODE_PRIVATE);
+
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         String address = bundle.getString("address1");
         String date = bundle.getString("date");
-        String time = bundle.getString("time");
+        String time = mPreferences.getString("time","");
 
         txtFinish.setText("You booking is in : " + time + "\nAt: " + date + "\nAddress: " + address);
 

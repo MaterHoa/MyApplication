@@ -44,10 +44,6 @@ public class NotificationFragment extends Fragment {
         linearLayout = view.findViewById(R.id.lnNoti);
         userService = ApiUtils.getUsernameService();
 
-        if (savedInstanceState == null){
-            new NotificationFragment();
-        }
-
         mPreferences = getActivity().getSharedPreferences(sharePrefFile, Context.MODE_PRIVATE);
         if (mPreferences.contains("accessToken")){
             String token = mPreferences.getString("accessToken", "");

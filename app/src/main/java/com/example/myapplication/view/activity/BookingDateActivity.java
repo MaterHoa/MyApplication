@@ -7,25 +7,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.LinearLayout;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.adapter.TimeAdapter;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
+import butterknife.ButterKnife;
 
 
 public class BookingDateActivity extends AppCompatActivity implements View.OnClickListener {
-
     Toolbar toolbar;
     LinearLayout lnToday, lnTomorrow, lnAfter, lnDate;
     TextView txtToday, txtTomorrow, txtAfter;
-    TableLayout tableLayout;
-    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10, btn11, btn12, btn13, btn14, btn15, btn16, btn17, btn18, btn19, btn20, btn21, btn22, btn23;
+    GridView gridView;
+    List<String> times;
     Button btnNext;
     String today, tomorrow, after;
     String date;
@@ -36,6 +40,8 @@ public class BookingDateActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_booking_date);
+        ButterKnife.bind(this);
+
 
         init();
 
@@ -66,33 +72,41 @@ public class BookingDateActivity extends AppCompatActivity implements View.OnCli
         txtTomorrow.setText(tomorrow);
         txtAfter.setText(after);
 
+        times = new ArrayList<>();
+        times.add("9:00");
+        times.add("9:30");
+        times.add("10:00");
+        times.add("10:30");
+        times.add("11:00");
+        times.add("11:30");
+        times.add("12:00");
+        times.add("12:30");
+        times.add("13:00");
+        times.add("13:30");
+        times.add("14:00");
+        times.add("14:30");
+        times.add("15:00");
+        times.add("15:30");
+        times.add("16:00");
+        times.add("16:30");
+        times.add("17:00");
+        times.add("17:30");
+        times.add("18:00");
+        times.add("18:30");
+        times.add("19:00");
+        times.add("19:30");
+        times.add("20:00");
+        times.add("20:30");
+        times.add("21:00");
+        times.add("21:30");
+        times.add("22:00");
+        TimeAdapter timeAdapter = new TimeAdapter(this, times);
+        gridView.setAdapter(timeAdapter);
+        timeAdapter.notifyDataSetChanged();
+
         lnToday.setOnClickListener(this);
         lnTomorrow.setOnClickListener(this);
         lnAfter.setOnClickListener(this);
-
-        btn1.setOnClickListener(this);
-        btn2.setOnClickListener(this);
-        btn3.setOnClickListener(this);
-        btn4.setOnClickListener(this);
-        btn5.setOnClickListener(this);
-        btn6.setOnClickListener(this);
-        btn7.setOnClickListener(this);
-        btn8.setOnClickListener(this);
-        btn9.setOnClickListener(this);
-        btn10.setOnClickListener(this);
-        btn11.setOnClickListener(this);
-        btn12.setOnClickListener(this);
-        btn13.setOnClickListener(this);
-        btn14.setOnClickListener(this);
-        btn15.setOnClickListener(this);
-        btn16.setOnClickListener(this);
-        btn17.setOnClickListener(this);
-        btn18.setOnClickListener(this);
-        btn19.setOnClickListener(this);
-        btn20.setOnClickListener(this);
-        btn21.setOnClickListener(this);
-        btn22.setOnClickListener(this);
-        btn23.setOnClickListener(this);
 
         btnNext.setOnClickListener(this);
     }
@@ -106,30 +120,7 @@ public class BookingDateActivity extends AppCompatActivity implements View.OnCli
         txtToday = findViewById(R.id.txtToday);
         txtTomorrow = findViewById(R.id.txtTomorrow);
         txtAfter = findViewById(R.id.txtAfter);
-        tableLayout = findViewById(R.id.tbTime);
-        btn1 = findViewById(R.id.btn1);
-        btn2 = findViewById(R.id.btn2);
-        btn3 = findViewById(R.id.btn3);
-        btn4 = findViewById(R.id.btn4);
-        btn5 = findViewById(R.id.btn5);
-        btn6 = findViewById(R.id.btn6);
-        btn7 = findViewById(R.id.btn7);
-        btn8 = findViewById(R.id.btn8);
-        btn9 = findViewById(R.id.btn9);
-        btn10 = findViewById(R.id.btn10);
-        btn11 = findViewById(R.id.btn11);
-        btn12 = findViewById(R.id.btn12);
-        btn13 = findViewById(R.id.btn13);
-        btn14 = findViewById(R.id.btn14);
-        btn15 = findViewById(R.id.btn15);
-        btn16 = findViewById(R.id.btn16);
-        btn17 = findViewById(R.id.btn17);
-        btn18 = findViewById(R.id.btn18);
-        btn19 = findViewById(R.id.btn19);
-        btn20 = findViewById(R.id.btn20);
-        btn21 = findViewById(R.id.btn21);
-        btn22 = findViewById(R.id.btn22);
-        btn23 = findViewById(R.id.btn23);
+        gridView = findViewById(R.id.gvTime);
 
         btnNext = findViewById(R.id.btnNextBook);
     }
@@ -147,76 +138,6 @@ public class BookingDateActivity extends AppCompatActivity implements View.OnCli
             case R.id.lnAfter:
                 date = after;
                 break;
-            case R.id.btn1:
-                time = "9:00";
-                break;
-            case R.id.btn2:
-                time = "9:30";
-                break;
-            case R.id.btn3:
-                time = "10:00";
-                break;
-            case R.id.btn4:
-                time = "10:30";
-                break;
-            case R.id.btn5:
-                time = "11:00";
-                break;
-            case R.id.btn6:
-                time = "11:30";
-                break;
-            case R.id.btn7:
-                time = "12:00";
-                break;
-            case R.id.btn8:
-                time = "12:30";
-                break;
-            case R.id.btn9:
-                time = "13:00";
-                break;
-            case R.id.btn10:
-                time = "13:30";
-                break;
-            case R.id.btn11:
-                time = "14:00";
-                break;
-            case R.id.btn12:
-                time = "14:30";
-                break;
-            case R.id.btn13:
-                time = "15:00";
-                break;
-            case R.id.btn14:
-                time = "15:30";
-                break;
-            case R.id.btn15:
-                time = "16:00";
-                break;
-            case R.id.btn16:
-                time = "16:30";
-                break;
-            case R.id.btn17:
-                time = "17:00";
-                break;
-            case R.id.btn18:
-                time = "17:30";
-                break;
-            case R.id.btn19:
-                time = "18:00";
-                break;
-            case R.id.btn20:
-                time = "18:30";
-                break;
-            case R.id.btn21:
-                time = "19:00";
-                break;
-            case R.id.btn22:
-                time = "19:30";
-                break;
-            case R.id.btn23:
-                time = "20:00";
-                break;
-
 
             case R.id.btnNextBook:
                 Intent iFinish = new Intent(BookingDateActivity.this, FinishBookingActivity.class);

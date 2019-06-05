@@ -22,7 +22,7 @@ public class RetrofitClient {
             @Override
             public Response intercept(Chain chain) throws IOException {
                 Request originalRequest = chain.request();
-                Request.Builder builder = originalRequest.newBuilder().addHeader("x-auth-token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjZWNhM2IzMDEzYTUyMGY4ZTAwYTVkZiIsImlhdCI6MTU1OTAzOTE0NCwiZXhwIjoxNTU5NjQzOTQ0fQ.L62LySPb5S8gwhxbzIV9ISi9jJ7FSTJTMEvFqW6S9ws");
+                Request.Builder builder = originalRequest.newBuilder().addHeader("x-auth-token", "");
                 Request newRequest = builder.build();
                 return chain.proceed(newRequest);
             }

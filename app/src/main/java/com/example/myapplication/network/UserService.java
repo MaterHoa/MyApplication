@@ -13,6 +13,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface UserService {
 
@@ -36,6 +37,9 @@ public interface UserService {
 
     @GET("notifications")
     Call<DataNotification> getNotification(@Header("x-auth-token") String accessToken);
+
+    @GET("maps/api/directions/json")
+    Call<String> getDirections(@Query("origin") String origin, @Query("destination") String destination);
 
 }
 

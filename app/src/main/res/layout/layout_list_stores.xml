@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="20dp"
     android:background="@drawable/rounded_corners"
+    android:id="@+id/rlStore"
     >
 
     <TextView

@@ -42,14 +42,13 @@ public class HomeActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabs);
 
         fragmentManager = getSupportFragmentManager();
-        if (savedInstanceState != null){
+        if (savedInstanceState != null) {
             homeFragment = (HomeFragment) fragmentManager.findFragmentByTag(SIMPLE_FRAGMENT_TAG);
-        }
-        else if (homeFragment == null){
+        } else if (homeFragment == null) {
             homeFragment = new HomeFragment();
         }
 
-        if (!homeFragment.isInLayout()){
+        if (!homeFragment.isInLayout()) {
             fragmentManager.beginTransaction().replace(R.id.viewpager, homeFragment, SIMPLE_FRAGMENT_TAG).commit();
         }
 
@@ -60,8 +59,8 @@ public class HomeActivity extends AppCompatActivity {
         adapter = new ViewPagerAdapter(getSupportFragmentManager(), this);
         adapter.addFragment(new HomeFragment(), "Home", tabIcons[0]);
         adapter.addFragment(new NotificationFragment(), "Notification", tabIcons[1]);
-        adapter.addFragment(new LocationFragment(), "Location", tabIcons[2]);
-        adapter.addFragment(new UserFragment(), "User", tabIcons[3]);
+        adapter.addFragment(new LocationFragment(), "Store", tabIcons[2]);
+        adapter.addFragment(new UserFragment(), "Account", tabIcons[3]);
         viewPager.setAdapter(adapter);
 
         highLightCurrentTab(0);

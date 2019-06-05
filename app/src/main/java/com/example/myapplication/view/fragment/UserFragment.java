@@ -70,6 +70,9 @@ public class UserFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.txtLogOut:
+                SharedPreferences.Editor editor = mPreferences.edit();
+                editor.remove("accessToken");
+                editor.apply();
                 startActivity(new Intent(getActivity(), UserNameActivity.class));
                 break;
             case R.id.txtMembershipcode:

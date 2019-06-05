@@ -36,6 +36,9 @@ public class UserNameActivity extends AppCompatActivity {
 
         usernameService = ApiUtils.getUsernameService();
         mPreferences = getSharedPreferences(sharePrefFile, MODE_PRIVATE);
+        if (mPreferences.contains("accessToken")){
+            startActivity(new Intent(UserNameActivity.this, HomeActivity.class));
+        }
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,9 +57,7 @@ public class UserNameActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<DataCheck> call, Response<DataCheck> response) {
                         if (response.isSuccessful()){
-                            if (mPreferences.contains("accessToken")){
-                                startActivity(new Intent(UserNameActivity.this, HomeActivity.class));
-                            } else if (response.body().getData().getExists().equals("true")){
+                            if (response.body().getData().getExists().equals("true")){
                                 Intent iPass = new Intent(UserNameActivity.this, PasswordActivity.class);
                                 iPass.putExtra("username", username);
                                 startActivity(iPass);
