@@ -37,7 +37,6 @@ import retrofit2.Response;
 
 
 public class HomeFragment extends Fragment implements View.OnClickListener, ItemClickListener {
-    public static final String TAG = "sate null";
     ImageView imgAvatar;
     TextView txtName, txtMember;
     RecyclerView recyclerView;
@@ -45,23 +44,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Item
     UserService userService;
     boolean vip;
     List<News> dataNews;
-    String name, image, idd;
+    String name, idd;
     NewsAdapter adapter;
     SharedPreferences mPreferences;
     String sharePrefFile = "com.example.myapplication";
-
-    public HomeFragment(){
-
-    }
-
-    public static HomeFragment newInstance(int page, String title) {
-        Bundle args = new Bundle();
-        args.putInt("page", page);
-        args.putString("title", title);
-        HomeFragment fragment = new HomeFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -142,10 +128,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Item
         switch (id) {
             case R.id.lnBooking:
                 Intent iBook = new Intent(getActivity(), BookingActivity.class);
-//                Bundle bBook = new Bundle();
-//                bBook.putString("idd", idd);
-//                bBook.putString("names", name);
-//                iBook.putExtras(bBook);
                 startActivity(iBook);
                 break;
             case R.id.lnMemership:

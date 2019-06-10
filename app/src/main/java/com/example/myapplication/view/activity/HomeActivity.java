@@ -19,10 +19,8 @@ public class HomeActivity extends AppCompatActivity {
     Toolbar toolbar;
     ViewPager viewPager;
     TabLayout tabLayout;
-    private final String SIMPLE_FRAGMENT_TAG = "myfragmenttag";
     FragmentManager fragmentManager;
     ViewPagerAdapter adapter;
-    HomeFragment homeFragment;
     private int[] tabIcons = {
             R.drawable.tab_home_active,
             R.drawable.tab_noti_active,
@@ -40,15 +38,6 @@ public class HomeActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabs);
 
         fragmentManager = getSupportFragmentManager();
-        if (savedInstanceState != null) {
-            homeFragment = (HomeFragment) fragmentManager.findFragmentByTag(SIMPLE_FRAGMENT_TAG);
-        } else if (homeFragment == null) {
-            homeFragment = new HomeFragment();
-        }
-
-        if (!homeFragment.isInLayout()) {
-            fragmentManager.beginTransaction().replace(R.id.viewpager, homeFragment, SIMPLE_FRAGMENT_TAG).commit();
-        }
 
         setSupportActionBar(toolbar);
 

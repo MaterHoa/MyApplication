@@ -19,7 +19,6 @@ import com.example.myapplication.view.activity.MembershipActivity;
 import com.example.myapplication.view.activity.UserNameActivity;
 
 public class UserFragment extends Fragment implements View.OnClickListener {
-
     ImageView imgAvatar;
     TextView txtName, txtGuest, txtMemCode, txtCoupon, txtHistory, txtCombo, txtTaP, txtLogout;
     SharedPreferences mPreferences;

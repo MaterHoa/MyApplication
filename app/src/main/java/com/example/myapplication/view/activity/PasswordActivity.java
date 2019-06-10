@@ -26,8 +26,6 @@ public class PasswordActivity extends AppCompatActivity {
     EditText edtpassword;
     Button btnSignin;
     UserService usernameService;
-    String id, accessToken, avatar, name;
-    boolean isVip;
     SharedPreferences mPreferences;
     String sharePrefFile = "com.example.myapplication";
     @Override

@@ -31,8 +31,6 @@ public class NotificationFragment extends Fragment {
     UserService userService;
     RecyclerView recyclerView;
     LinearLayout linearLayout;
-    String id, name, avatar, accessToken;
-    boolean isVip;
     SharedPreferences mPreferences;
     String sharePrefFile = "com.example.myapplication";
 
