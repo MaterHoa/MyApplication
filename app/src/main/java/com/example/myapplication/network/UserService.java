@@ -39,7 +39,7 @@ public interface UserService {
     Call<DataNotification> getNotification(@Header("x-auth-token") String accessToken);
 
     @GET("maps/api/directions/json")
-    Call<String> getDirections(@Query("origin") String origin, @Query("destination") String destination, @Query("key") String key);
+    Call<String> getDirections(@Query("origin") String origin, @Query("destination") String destination);
 
 }
 

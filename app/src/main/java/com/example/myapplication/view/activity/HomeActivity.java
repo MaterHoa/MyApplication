@@ -40,6 +40,15 @@ public class HomeActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabs);
 
         fragmentManager = getSupportFragmentManager();
+        if (savedInstanceState != null) {
+            homeFragment = (HomeFragment) fragmentManager.findFragmentByTag(SIMPLE_FRAGMENT_TAG);
+        } else if (homeFragment == null) {
+            homeFragment = new HomeFragment();
+        }
+
+        if (!homeFragment.isInLayout()) {
+            fragmentManager.beginTransaction().replace(R.id.viewpager, homeFragment, SIMPLE_FRAGMENT_TAG).commit();
+        }
 
         setSupportActionBar(toolbar);
 
