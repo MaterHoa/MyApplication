@@ -50,19 +50,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener, Item
     SharedPreferences mPreferences;
     String sharePrefFile = "com.example.myapplication";
 
-    public HomeFragment(){
-
-    }
-
-    public static HomeFragment newInstance(int page, String title) {
-        Bundle args = new Bundle();
-        args.putInt("page", page);
-        args.putString("title", title);
-        HomeFragment fragment = new HomeFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
